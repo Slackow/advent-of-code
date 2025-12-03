@@ -1,0 +1,8 @@
+[MESSAGES CONTROL]
+disable = 
+    missing-module-docstring,
+    missing-function-docstring,
+    redefined-outer-name,
+    redefined-builtin,
+    invalid-name,
+    consider-using-sys-exit,

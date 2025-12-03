@@ -1,0 +1,28 @@
+#!/bin/bash
+set -eu
+cd "$(dirname "$0")"
+
+# get env
+source .env || :
+
+# parse args
+DAY="${DAY:-$1}"
+PART="${PART:-${2:-1}}"
+
+# misc vars
+FILE="$YEAR/day$DAY-$PART.py"
+INPUT=".inputs/cache$YEAR-day$DAY.txt"
+
+# install venv/setup
+if ! [ -e .venv ];then
+    uv venv
+    uv pip install pylint
+    mkdir -p .inputs
+fi
+
+# lint, get inputs, and run code
+source .venv/bin/activate
+pylint "$FILE"
+[ -f "$INPUT" ] || curl -f --cookie session="$SESSION" "https://adventofcode.com/$YEAR/day/$DAY/input" -o "$INPUT"
+uv run "$FILE" <"$INPUT"
+
