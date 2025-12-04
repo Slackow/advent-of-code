@@ -8,7 +8,7 @@ So I can just execute
 ```
 ./day 2
 ```
-and it will automatically download the input and run my code in `2025/day2-1.py`
+and it will automatically download the input and run my code in `2025/day02-P1.py`
 
 or
 ```
@@ -18,7 +18,7 @@ PART=2 ./day 2
 # or
 DAY=2 PART=2 ./day
 ```
-to run part 2 (`2025/day2-2.py`)
+to run part 2 (`2025/day02-P2.py`)
 
 text inputs are automatically cached in `.inputs`
 
@@ -34,6 +34,6 @@ I decided to push this on GitHub since I almost removed all my code when trying 
 - Install [uv](https://docs.astral.sh/uv/#installation)
 - Run `cp .env.example .env`
 - Fill out `.env` with your values
-- Write your own code or use mine in format `"$YEAR/day$DAY-$PART.py"`
+- Write your own code or use mine in files like `"$YEAR/day$PADDED_DAY-P$PART.py"`
 - Optionally edit the `.pylintrc` file to disable more or enable some warnings
 - Execute the script (`./day $DAY ${PART:-}`)

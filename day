@@ -10,8 +10,9 @@ DAY="${DAY:-$1}"
 PART="${PART:-${2:-1}}"
 
 # misc vars
-FILE="$YEAR/day$DAY-$PART.py"
-INPUT=".inputs/cache$YEAR-day$DAY.txt"
+PADDED_DAY="$(printf "%02d" "$DAY")"
+FILE="$YEAR/day$PADDED_DAY-P$PART.py"
+INPUT=".inputs/cache$YEAR-day$PADDED_DAY.txt"
 
 # install venv/setup
 if ! [ -e .venv ];then
