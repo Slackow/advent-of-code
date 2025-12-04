@@ -15,7 +15,7 @@ FILE="$YEAR/day$PADDED_DAY-P$PART.py"
 INPUT=".inputs/cache$YEAR-day$PADDED_DAY.txt"
 
 # setup
-mkdir -p .inputs
+mkdir -p "$(dirname "$INPUT")"
 
 # lint, get inputs, and run code
 uv tool run pylint "$FILE"
