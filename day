@@ -14,16 +14,11 @@ PADDED_DAY="$(printf "%02d" "$DAY")"
 FILE="$YEAR/day$PADDED_DAY-P$PART.py"
 INPUT=".inputs/cache$YEAR-day$PADDED_DAY.txt"
 
-# install venv/setup
-if ! [ -e .venv ];then
-    uv venv
-    uv pip install pylint
-    mkdir -p .inputs
-fi
+# setup
+mkdir -p .inputs
 
 # lint, get inputs, and run code
-source .venv/bin/activate
-pylint "$FILE"
+uv tool run pylint "$FILE"
 [ -f "$INPUT" ] || curl -f --cookie session="$SESSION" "https://adventofcode.com/$YEAR/day/$DAY/input" -o "$INPUT"
 uv run "$FILE" <"$INPUT"
 
