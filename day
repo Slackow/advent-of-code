@@ -6,8 +6,8 @@ cd "$(dirname "$0")"
 source .env || :
 
 # parse args
-DAY="${DAY:-$1}"
-PART="${PART:-${2:-1}}"
+DAY="${1:-$DAY}"
+PART="${2:-${PART:-1}}"
 
 # misc vars
 PADDED_DAY="$(printf "%02d" "$DAY")"
